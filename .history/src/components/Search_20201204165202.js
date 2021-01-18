@@ -1,0 +1,34 @@
+import React from 'react';
+
+const Search = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
+  // array destructuring
+  // null sets initial state on activeIndex
+  // setActiveIndex is the finction that updates aciveIndex
+
+  const onTitleClick = (index) => {
+    setActiveIndex(index);
+  };
+
+  const renderedItems = items.map((item, index) => {
+    const active = index === activeIndex ? 'active' : '';
+
+    return (
+      <React.Fragment key={item.title}>
+        <div className={`title ${active}`} onClick={() => onTitleClick(index)}>
+          <i className="dropdown icon"></i>
+          {item.title}
+        </div>
+        <div className={`content ${active}`}>
+          <p>{item.content}</p>
+        </div>
+      </React.Fragment>
+    );
+  });
+
+  return (
+    <<h1>Search</h1>
+  );
+};
+
+export default Search;
